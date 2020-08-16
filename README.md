@@ -1,6 +1,6 @@
 # Monday.com Ruby API Explorer
 
-This ia a Ruby application to query the Monday.com GraphQL API.
+This ia a Ruby application to use the Monday.com GraphQL API (v2).
 
 ## Installation
 
@@ -15,15 +15,23 @@ To install this application:
 
 Monday.com requires users to authenticate using a JSON Web Token generated through the dashboard. Once you have your token, copy the `.env.example` file in the root folder of this application to `.env` and add your token as the value for the `MONDAY_TOKEN` key.
 
+## Client Instantiation
+
+You can instantiate a Monday Client by providing your Monday JWT as an argument to `Monday::Client.new`:
+
+```ruby
+client = Monday::Client.new(token: ENV['MONDAY_TOKEN'])
+```
+
 ### Query the API
 
 To query the Monday.com API do the following:
 
 * Build a request query either using the [Monday.com API Playground](https://israelrb.monday.com/apps/playground) or Postman.
-* Once you have a query you can execute the following from the command line, replacing the "QUERY" string with your query:
+* Once you have a query you can execute the following:
 
 ```ruby
-bundle exec ruby query.rb "QUERY"
+client.query.new_query(query)
 ```
 
 ## Contributing
