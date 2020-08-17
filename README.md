@@ -1,5 +1,7 @@
 # Monday.com Ruby API Explorer
 
+[![Coverage Status](https://github.com/bencgreenberg/monday_ruby_api_explorer/workflows/CI/badge.svg)
+
 This ia a Ruby application to use the Monday.com GraphQL API (v2).
 
 ## Installation
