@@ -4,13 +4,14 @@ require 'dotenv'
 Dotenv.load
 
 class Monday::HttpRequest
-  def request(query)
+  def request(query, type)
     url = URI("https://api.monday.com/v2")
 
     https = Net::HTTP.new(url.host, url.port);
     https.use_ssl = true
     
-    request = Net::HTTP::Get.new(url)
+    request = Net::HTTP::Get.new(url) if type == 'Get'
+    request = Net::HTTP::Post.new(url) if type == 'Post'
     request["Content-Type"] = "application/json"
     request["Authorization"] = "#{ENV['MONDAY_TOKEN']}"
     request.body = manage_query(query)

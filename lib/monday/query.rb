@@ -20,7 +20,7 @@ class Monday::Query < Monday::HttpRequest
   # @example
   #   results = Monday::Query.search({query: "query { me { name } }"})
   def search(query)
-    response = request(query)
+    response = request(query, 'Get')
 
     response
   end
