@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem 'dotenv'
+gem 'rake'
 gem 'http'
 gem 'json'
 gem 'minitest'
