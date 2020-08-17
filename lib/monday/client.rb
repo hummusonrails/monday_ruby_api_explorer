@@ -8,4 +8,8 @@ class Monday::Client
   def query
     Monday::Query.new
   end
+
+  def update
+    Monday::Update.new
+  end
 end

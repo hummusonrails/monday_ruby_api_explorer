@@ -39,6 +39,46 @@ query = {
 client.query.search(query)
 ```
 
+### Making Updates with the API
+
+You can update your Monday.com environment through the library by accessing methods on `client.update`:
+
+### Updating Boards
+
+* To create a board:
+
+```ruby
+client.update.boards.create_board(
+  board_name: 'example new board',
+  board_kind: 'public'
+  )
+```
+
+* To archive a board:
+
+```ruby
+client.update.archive_board(board_id: 12345)
+```
+
+* To add subscribers to a board:
+
+```ruby
+client.update.boards.add_subscribers(
+  board_id: 123456,
+  user_ids: [1223, 34567, 1234],
+  kind: 'owner'
+)
+```
+
+* To delete subcribers from a board:
+
+```ruby
+client.update.boards.delete_subscribers(
+  board_id: 123456,
+  user_ids: [12345]
+)
+```
+
 ## Contributing
 
 Please feel free to offer contributions to this explorer! I try to follow the GitHub flow, which means please make a feature branch from the main branch, and when you are ready open up a pull request against the main branch with the work in your feature branch.
