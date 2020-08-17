@@ -2,7 +2,6 @@ require 'json'
 require 'net/http'
 
 class Monday::Query < Monday::HttpRequest
-
   # Make a new query request
   #
   # Your query can be provided in a Hash with the key being 'query'.
