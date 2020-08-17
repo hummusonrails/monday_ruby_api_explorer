@@ -5,41 +5,21 @@ class Monday::Query < Monday::HttpRequest
 
   # Make a new query request
   #
-  # @return JSON
+  # Your query can be provided in a Hash with the key being 'query'.
+  # The key in the Hash argument can either be a Symbol or a String.
+  #
+  # The value of the 'query' key must be a String that starts with the
+  # word query and an open curly brace:
+  # "query {"
   # 
+  # The end of your query ends with a closing curly brace still enclosed
+  # in the string:
+  # "}"
+  #
+  # @return JSON
+  #
   # @example
-  #   results = Monday::Query.new_query("{
-  #   \"query\":
-  #     \"\\nquery {
-  #       \\n  me {
-  #         \\n    name\\n  
-  #         }\\n  boards(limit:1) {
-  #           \\n    name\\n    \\n    
-  #           columns {\\n      
-  #             title\\n      
-  #             id\\n      
-  #             type\\n    
-  #           }\\n    \\n    
-  #           groups {\\n    \\
-  #             ttitle\\n      
-  #             id\\n    
-  #           }\\n    \\n    
-  #           items {\\n      
-  #             name\\n      
-  #             group {\\n        
-  #               id\\n      
-  #             }\\n      \\n      
-  #           column_values {\\n        
-  #             id\\n        
-  #             value\\n        
-  #             text\\n      
-  #           }\\n    
-  #         }\\n  
-  #       }\\n
-  #     }\",
-  #     \"variables\":{}
-  #   }")
-
+  #   results = Monday::Query.new_query({query: "query { me { name } }"})
   def new_query(query)
     response = request(query)
 
