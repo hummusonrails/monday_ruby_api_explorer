@@ -36,7 +36,7 @@ query = {
   query: "{query { me { name } } }"
 }
 
-client.query.new_query(query)
+client.query.search(query)
 ```
 
 ## Contributing
