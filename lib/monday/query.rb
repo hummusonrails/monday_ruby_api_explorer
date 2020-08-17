@@ -19,8 +19,8 @@ class Monday::Query < Monday::HttpRequest
   # @return JSON
   #
   # @example
-  #   results = Monday::Query.new_query({query: "query { me { name } }"})
-  def new_query(query)
+  #   results = Monday::Query.search({query: "query { me { name } }"})
+  def search(query)
     response = request(query)
 
     response
