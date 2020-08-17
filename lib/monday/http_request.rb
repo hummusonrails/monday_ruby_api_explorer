@@ -13,11 +13,20 @@ class Monday::HttpRequest
     request = Net::HTTP::Get.new(url)
     request["Content-Type"] = "application/json"
     request["Authorization"] = "#{ENV['MONDAY_TOKEN']}"
-    request.body = query
+    request.body = manage_query(query)
     response = https.request(request)
     
 
     parse(response)
+  end
+
+  def manage_query(query)
+    if query.is_a?(Hash)
+      query = query.collect{|k,v| [k.to_s, v]}.to_h.to_s.gsub('=>', ':')
+      query
+    end
+
+    query
   end
 
   def parse(response)
