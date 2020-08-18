@@ -1,0 +1,2 @@
+class Monday::Updates
+end

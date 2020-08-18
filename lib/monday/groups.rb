@@ -1,0 +1,2 @@
+class Monday::Groups
+end
