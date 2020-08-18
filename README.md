@@ -59,13 +59,13 @@ client.boards.new(
 * To archive a board:
 
 ```ruby
-client.boards.archive_board(board_id: 12345)
+client.boards.archive(board_id: 12345)
 ```
 
 * To add subscribers to a board:
 
 ```ruby
-client.boards.add_subscribers(
+client.boards.subscribers.new(
   board_id: 123456,
   user_ids: [1223, 34567, 1234],
   kind: 'owner'
@@ -75,7 +75,7 @@ client.boards.add_subscribers(
 * To delete subcribers from a board:
 
 ```ruby
-client.boards.delete_subscribers(
+client.boards.subscribers.remove(
   board_id: 123456,
   user_ids: [12345]
 )

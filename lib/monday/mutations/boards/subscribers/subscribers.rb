@@ -1,5 +1,5 @@
 class Monday::Mutations::Boards::Subscribers < Monday::HttpRequest
-  def add_subscribers(params = {})
+  def add(params = {})
     raise KeyError, "Missing 'board_id' parameter" unless params.fetch(:board_id)
     raise KeyError, "Missing 'user_ids' parameter" unless params.fetch(:user_ids)
     raise KeyError, "Missing 'kind' parameter" unless params.fetch(:kind)
@@ -18,7 +18,7 @@ class Monday::Mutations::Boards::Subscribers < Monday::HttpRequest
     response
   end
 
-  def delete_subscribers(params = {})
+  def remove(params = {})
     raise KeyError, "Missing 'board_id' parameter" unless params.fetch(:board_id)
     raise KeyError, "Missing 'user_ids' parameter" unless params.fetch(:user_ids)
     raise ArgumentError, "Expecred 'user_ids' parameter to be an Array" unless params.fetch(:user_ids).is_a?(Array)
