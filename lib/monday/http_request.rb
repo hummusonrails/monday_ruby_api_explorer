@@ -32,7 +32,7 @@ class Monday::HttpRequest
 
   def parse(response)
     if response.class == Net::HTTPNoContent || response.class == Net::HTTPSuccess || response.class == Net::HTTPOK
-      response = JSON.parse(response.body)
+      response = JSON.parse(response.body) unless response.body == ''
       response
     else
       message = Monday::Errors.new(response)

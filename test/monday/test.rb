@@ -16,7 +16,7 @@ module Monday
     end
 
     def uri
-      uri = 'https://api.monday.com/v2'
+      'https://api.monday.com/v2'
     end
 
     def client
