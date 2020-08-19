@@ -1,9 +1,9 @@
 class Monday::Boards
-  def new
-    Monday::Mutations::Boards.add_board(params = {})
+  def create(params)
+    Monday::Mutations::Boards.new.add_board(params)
   end
 
-  def archive
+  def archive(board_id)
     Monday::Mutations::Boards.new.archive_board(board_id)
   end
 

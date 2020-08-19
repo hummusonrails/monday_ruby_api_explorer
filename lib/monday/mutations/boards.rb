@@ -14,7 +14,7 @@ class Monday::Mutations::Boards < Monday::HttpRequest
     raise KeyError, "Missing 'board_id' parameter" unless params.fetch(:board_id)
 
     request = {
-      'query' => "mutation { archive_board (board_id: #{req[:board_id]) { id } }" 
+      'query' => "mutation { archive_board (board_id: #{req[:board_id]}) { id } }" 
     }
 
     response = request(request, 'Post')
